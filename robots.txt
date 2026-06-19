@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://buckpnc.github.io/portal-home-leyu-com-cn/sitemap.xml
