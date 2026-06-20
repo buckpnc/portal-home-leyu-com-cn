@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>球速体育 · 再次相聚</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: #f6f8fa;
+            color: #1e2229;
+            line-height: 1.6;
+        }
+
+        /* 深色导航 + 头图 */
+        .nav-hero-wrapper {
+            background: #0b0f14;
+            padding: 0 0 3rem 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #e6edf3;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #b0b8c4;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #8ab4f8;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.8rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            color: #f0f4f9;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #9aa7b7;
+            max-width: 700px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #3b4a5a;
+            color: #c8d2df;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .hero-cta:hover {
+            border-color: #8ab4f8;
+            color: #8ab4f8;
+            background: rgba(138, 180, 248, 0.06);
+        }
+
+        /* 浅色正文区 */
+        .main-content {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2.5rem 1.8rem 3.5rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #0f141a;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .section-sub {
+            color: #58606b;
+            font-size: 1rem;
+            margin-bottom: 2.2rem;
+            max-width: 600px;
+        }
+
+        .intro-card {
+            background: #ffffff;
+            padding: 2rem 2rem 2rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+            margin-bottom: 2.8rem;
+            border: 1px solid #eef1f5;
+        }
+
+        .intro-card p {
+            margin-bottom: 1.2rem;
+            font-size: 1.02rem;
+        }
+
+        .intro-card strong {
+            font-weight: 500;
+            color: #1e2b3b;
+        }
+
+        .highlight-link {
+            color: #1a6fba;
+            text-decoration: none;
+            border-bottom: 1px solid #b9d1eb;
+            transition: 0.15s;
+        }
+
+        .highlight-link:hover {
+            color: #08467c;
+            border-bottom-color: #08467c;
+        }
+
+        /* 三个场景卡片 */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin: 2.5rem 0 3.2rem;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 2rem 1.5rem 2rem 1.5rem;
+            border: 1px solid #eaeff3;
+            transition: 0.2s ease;
+        }
+
+        .scene-card:hover {
+            border-color: #c8d4e0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .scene-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            display: block;
+            line-height: 1;
+        }
+
+        .scene-card h3 {
+            font-weight: 500;
+            font-size: 1.18rem;
+            margin-bottom: 0.6rem;
+            color: #12161d;
+        }
+
+        .scene-card p {
+            color: #3e4856;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* 常见说明 (FAQ 摘要) */
+        .faq-area {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem 2.2rem;
+            border: 1px solid #eef1f5;
+            margin-top: 1.2rem;
+        }
+
+        .faq-area h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #0f141a;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #edeff2;
+            padding: 1.2rem 0 0.9rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: 0;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #1a242f;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .faq-item .a {
+            color: #4a5565;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .faq-item .a a {
+            color: #1a6fba;
+            border-bottom: 1px solid #c2d6ed;
+            text-decoration: none;
+        }
+
+        .faq-item .a a:hover {
+            border-bottom-color: #1a6fba;
+        }
+
+        /* 收藏提示条 */
+        .bookmark-note {
+            background: #f0f3f8;
+            padding: 1.2rem 1.8rem;
+            border-radius: 40px;
+            margin: 2.5rem 0 1rem;
+            display: inline-block;
+            font-size: 0.95rem;
+            color: #1e2b3b;
+            border: 1px solid #dfe5ed;
+        }
+
+        .bookmark-note span {
+            margin-right: 0.4rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.8rem 1.2rem 2rem;
+            font-size: 0.8rem;
+            color: #6d7887;
+            border-top: 1px solid #e2e7ed;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 860px) {
+            .hero h1 { font-size: 2rem; }
+            .scenes-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 620px) {
+            nav { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+            .nav-links { gap: 1.2rem; flex-wrap: wrap; }
+            .hero h1 { font-size: 1.7rem; }
+            .scenes-grid { grid-template-columns: 1fr; }
+            .faq-area { padding: 1.5rem; }
+            .intro-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav-hero-wrapper">
+    <nav>
+        <span class="logo">◉ 球速体育</span>
+        <ul class="nav-links">
+            <li><a href="#intro">介绍</a></li>
+            <li><a href="#scenes">场景</a></li>
+            <li><a href="#faq">说明</a></li>
+            <li><a href="https://hub-qiusu.com">球速体育</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>再次回到这里<br>稳定且持续</h1>
+        <p>从一次访问到成为常访，收藏、记忆、习惯。<br>球速体育 · 简洁直达，无需重复寻找。</p>
+        <a href="https://hub-qiusu.com" class="hero-cta">球速体育</a>
+    </div>
+</div>
+
+<div class="main-content">
+
+    <!-- 核心介绍 -->
+    <div class="intro-card" id="intro">
+        <h2 class="section-title">关于这个站点</h2>
+        <div class="section-sub">一次收藏，长期使用</div>
+        <p><strong>球速体育</strong> 是一个以信息和导航为核心定位的轻量级平台。这里没有冗余的信息堆砌，也不制造焦虑。如果你曾经访问过它，再次回来时界面与内容保持一贯的清爽风格——这正是我们刻意维持的。</p>
+        <p>很多用户习惯将其加入浏览器书签或收藏夹，这是因为域名 <a href="https://hub-qiusu.com" class="highlight-link">球速体育</a> 指向的页面结构清晰，且长期稳定。无论你是第一次接触还是反复回来，<a href="https://hub-qiusu.com" class="highlight-link">球速体育</a> 都希望提供一致的浏览体验。</p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div id="scenes">
+        <h2 class="section-title">三种常见使用情境</h2>
+        <div class="section-sub">根据自身节奏，选择最合适的访问方式</div>
+
+        <div class="scenes-grid">
+            <div class="scene-card">
+                <span class="scene-icon">📑</span>
+                <h3>日常快速查阅</h3>
+                <p>打开浏览器，从收藏夹或历史记录中直接进入 <a href="https://hub-qiusu.com" class="highlight-link">球速体育</a>。页面加载轻快，信息结构一目了然，无需反复搜索地址。</p>
+            </div>
+            <div class="scene-card">
+                <span class="scene-icon">🔖</span>
+                <h3>跨设备同步</h3>
+                <p>将网站加入书签或同步标签，无论在办公室还是移动端，都能通过统一入口再次访问。收藏一次，后续随时可用。</p>
+            </div>
+            <div class="scene-card">
+                <span class="scene-icon">🔄</span>
+                <h3>定期回访</h3>
+                <p>部分用户每周或每月固定回看，关注内容是否更新或结构是否调整。稳定的框架让回访者始终保持熟悉感。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <div class="faq-area" id="faq">
+        <h2>常见说明与提示</h2>
+        <div class="faq-item">
+            <div class="q">如何最快找到这个网站？</div>
+            <div class="a">建议将 <a href="https://hub-qiusu.com">球速体育</a> 加入浏览器书签，或直接在地址栏输入域名。不建议依赖搜索引擎结果。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">页面会频繁改动吗？</div>
+            <div class="a">内容布局保持相对稳定，偶尔会优化样式或补充说明。核心导航和 <a href="https://hub-qiusu.com">球速体育</a> 入口始终清晰可辨。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">收藏后还需要手动更新吗？</div>
+            <div class="a">不需要。书签指向的域名不变，内容始终由同一站点提供。如果将来有重要调整，会在站内以通知方式说明。</div>
+        </div>
+        <div class="bookmark-note">
+            <span>💡</span> 提示：建议将本页加入浏览器收藏夹，方便再次访问。
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    hub-qiusu.com · 球速体育 &nbsp;·&nbsp; 持续运行中
+</footer>
+
+</body>
+</html>
