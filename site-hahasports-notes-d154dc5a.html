@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>哈哈体育 - 专题杂志</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fcedda 0%, #f6d5b3 40%, #eac7a0 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2rem 1.2rem;
+      line-height: 1.6;
+      color: #3f2e1f;
+    }
+    .magazine-wrap {
+      max-width: 1100px;
+      width: 100%;
+    }
+    /* hero */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 1.5rem 2.8rem;
+      background: rgba(255, 245, 230, 0.7);
+      backdrop-filter: blur(4px);
+      border-radius: 48px 48px 28px 28px;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 12px 28px rgba(140, 80, 30, 0.12);
+      border: 1px solid rgba(255, 210, 160, 0.4);
+    }
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 500;
+      letter-spacing: 4px;
+      color: #714623;
+      text-shadow: 0 2px 6px rgba(180, 100, 40, 0.2);
+      margin-bottom: 0.5rem;
+    }
+    .hero .sub {
+      font-size: 1.2rem;
+      color: #8b5e3c;
+      background: rgba(235, 190, 140, 0.3);
+      display: inline-block;
+      padding: 0.3rem 2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+      font-weight: 400;
+    }
+    .hero .intro-text {
+      max-width: 680px;
+      margin: 1.8rem auto 0;
+      font-size: 1.1rem;
+      background: rgba(255, 240, 220, 0.5);
+      padding: 1.2rem 2rem;
+      border-radius: 40px;
+      color: #4f3823;
+      border: 1px solid rgba(200, 150, 100, 0.2);
+    }
+    /* 三段卡片 (杂志专题) */
+    .feature-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+    .card {
+      background: #fffaf4;
+      border-radius: 36px;
+      padding: 2.2rem 2.5rem;
+      box-shadow: 0 8px 20px rgba(130, 75, 30, 0.08);
+      border: 1px solid rgba(235, 195, 155, 0.3);
+      transition: all 0.2s ease;
+    }
+    .card:hover {
+      box-shadow: 0 14px 30px rgba(140, 80, 30, 0.12);
+      background: #fffcf8;
+    }
+    .card h2 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #6a422b;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #ecc6a4;
+      display: inline-block;
+    }
+    .card p {
+      font-size: 1.05rem;
+      color: #463424;
+      margin-bottom: 1rem;
+    }
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+    .card .highlight {
+      background: #f7e5d3;
+      padding: 0.15rem 0.6rem;
+      border-radius: 24px;
+      font-weight: 500;
+      color: #6a3f25;
+    }
+    .card a {
+      color: #9b5f33;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #c7976b;
+      transition: 0.15s;
+    }
+    .card a:hover {
+      color: #603c22;
+      border-bottom-style: solid;
+      background: #f5e0cc;
+      border-radius: 12px;
+      padding: 0 0.2rem;
+    }
+    /* FAQ 摘要样式 */
+    .faq-mini {
+      background: #fef7ee;
+      border-radius: 36px;
+      padding: 2rem 2.5rem;
+      margin: 1.2rem 0 2.5rem;
+      border-left: 6px solid #dba878;
+    }
+    .faq-mini h3 {
+      font-size: 1.5rem;
+      font-weight: 450;
+      color: #5f3c25;
+      margin-bottom: 1rem;
+    }
+    .faq-mini details {
+      margin-bottom: 1rem;
+      padding: 0.5rem 0.8rem;
+      background: rgba(255, 240, 218, 0.4);
+      border-radius: 30px;
+      border: 1px solid #ecd2b6;
+    }
+    .faq-mini summary {
+      font-weight: 500;
+      color: #5b3e2b;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      font-size: 1rem;
+      list-style: '▸ ';
+    }
+    .faq-mini details[open] summary {
+      list-style: '▾ ';
+    }
+    .faq-mini .answer {
+      margin: 0.5rem 0 0.2rem 1.2rem;
+      color: #4d3828;
+    }
+    /* 页尾 */
+    .page-footer {
+      margin-top: 2.2rem;
+      text-align: center;
+      padding: 2rem 1.2rem;
+      background: rgba(245, 215, 180, 0.25);
+      backdrop-filter: blur(2px);
+      border-radius: 60px;
+      border: 1px solid #efdac0;
+    }
+    .page-footer p {
+      font-size: 1.05rem;
+      color: #543f2d;
+    }
+    .page-footer a {
+      color: #7c512f;
+      font-weight: 600;
+      text-decoration: none;
+      background: #f5e1cc;
+      padding: 0.2rem 1.8rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin: 0.8rem 0 0.2rem;
+      border: 1px solid #dbb58b;
+      transition: 0.15s;
+      font-size: 1.1rem;
+    }
+    .page-footer a:hover {
+      background: #ebd0b3;
+      border-color: #b9885c;
+      transform: scale(1.02);
+    }
+    /* 响应式 */
+    @media (max-width: 700px) {
+      body { padding: 1.4rem 0.8rem; }
+      .hero { padding: 2.2rem 1rem; border-radius: 32px; }
+      .hero h1 { font-size: 2.8rem; letter-spacing: 2px; }
+      .hero .intro-text { font-size: 1rem; padding: 1rem 1.2rem; }
+      .card { padding: 1.6rem 1.2rem; border-radius: 28px; }
+      .card h2 { font-size: 1.5rem; }
+      .faq-mini { padding: 1.5rem 1.2rem; }
+      .page-footer a { padding: 0.3rem 1.2rem; font-size: 1rem; }
+    }
+    @media (max-width: 460px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero .sub { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="magazine-wrap">
+
+  <!-- hero 横幅 -->
+  <header class="hero">
+    <h1>哈哈体育</h1>
+    <div class="sub">· 运动 · 日常 · 节奏 ·</div>
+    <div class="intro-text">
+      从周末球局到晨间慢跑，体育不只竞技，更是生活里的一道光。<br>
+      这里聊的是汗水里的真实和伙伴间的默契。
+    </div>
+  </header>
+
+  <!-- 三段杂志式介绍 -->
+  <section class="feature-grid">
+
+    <article class="card">
+      <h2>🏃 动起来的日常</h2>
+      <p>几年前开始，我习惯在每个周三晚上约朋友打一场羽毛球。场地不大，灯光也谈不上专业，但每一次扣杀和救球都让人彻底放空。后来慢慢发现，身边越来越多的人把运动当作一种喘息——不是非要练成什么，而是为了在忙碌里找回身体的主动权。</p>
+      <p>在<span class="highlight">哈哈体育</span>的话题里，运动更像是一种朴素的习惯：下班后的一小时篮球、周末山脚的徒步、甚至只是跟着直播拉伸十五分钟。这些片段拼起来，就是属于普通人的运动图景。</p>
+    </article>
+
+    <article class="card">
+      <h2>🤝 伙伴与节奏</h2>
+      <p>一个人跑容易放弃，一群人跑就能多坚持两公里。这是我的亲身体会。体育最迷人的地方，往往不是成绩，而是那种“一起流汗”的连接感。无论是小区里的乒乓搭子，还是公司羽毛球群里喊一声就能凑起的双打，这些关系简单又有力量。</p>
+      <p>所以当讨论运动的时候，我们总会提到氛围和陪伴。这也是为什么<a href="https://site-hahasports.com">哈哈体育</a>会被很多朋友当作一个轻松的信息落点——不贩卖焦虑，不鼓吹极限，只记录真实的运动日常和实用的小经验。</p>
+    </article>
+
+    <article class="card">
+      <h2>🌿 场景与选择</h2>
+      <p>运动不必非得去健身房。我在阳台铺一张防滑垫就练核心，在小区空地跳绳十分钟也能出汗。身边的公园、学校操场、甚至一段没人的楼梯，都可以变成训练场。关键在于开始和持续，而不是装备多齐全。</p>
+      <p>就像有人喜欢夜跑时听播客，有人习惯游泳时彻底放空，每个人都有自己的运动语言。而当你找到那个舒服的节奏，运动就不再是任务，而是一种期待。这也是哈哈体育一直传递的态度：不设限，不比较，动起来就好。</p>
+    </article>
+
+  </section>
+
+  <!-- FAQ 摘要 (杂志专题常见段落) -->
+  <div class="faq-mini">
+    <h3>❓ 运动小疑惑 · 简答</h3>
+
+    <details>
+      <summary>刚开始运动，怎么避免第二天太酸痛？</summary>
+      <div class="answer">从低强度开始，比如快走或简单的自重练习，运动后花五分钟拉伸大腿前侧、小腿和后腰。第二天如果酸痛，可以慢走或做轻柔的瑜伽，别完全躺着不动。</div>
+    </details>
+
+    <details>
+      <summary>一周运动几次比较合理？</summary>
+      <div class="answer">对于大多数人来说，每周三到五次，每次二十到四十分钟，就能维持不错的状态。关键是规律，而不是单次练到力竭。</div>
+    </details>
+
+    <details>
+      <summary>下雨天不想出门，有什么推荐？</summary>
+      <div class="answer">居家可以做简单的自重深蹲、平板支撑、开合跳，甚至跟着二十分钟的有氧操。打开窗户通通风，一张瑜伽垫就够用。</div>
+    </details>
+
+  </div>
+
+  <!-- 页尾 + 链接 -->
+  <footer class="page-footer">
+    <p>保持移动，保持好奇。运动是日常的延伸，也是生活的底色。</p>
+    <p>了解更多运动灵感与真实分享，欢迎到 <a href="https://site-hahasports.com">哈哈体育</a> 看看。</p>
+    <p style="font-size:0.9rem; color:#7d6048; margin-top:1.2rem;">—— 不用刻意，动起来就很好 ——</p>
+  </footer>
+
+</div>
+</body>
+</html>
